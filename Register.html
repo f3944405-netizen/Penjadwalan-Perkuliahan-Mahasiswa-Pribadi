@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Register</title>
+  <style>
+    /* ====== Gaya Umum ====== */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn.primary {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background-color: #0b5ed7;
+    }
+
+    .btn.secondary {
+      background-color: #e9ecef;
+      color: #000;
+    }
+
+    .btn.secondary:hover {
+      background-color: #d6d8db;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Form Register</h2>
+    <form id="registerForm">
+      <label for="nim">NIM :</label>
+      <input type="text" id="nim" name="nim" placeholder="NIM" required>
+
+      <label for="nama">NAMA :</label>
+      <input type="text" id="nama" name="nama" placeholder="Nama" required>
+
+      <label for="pass">PASS :</label>
+      <input type="password" id="pass" name="pass" placeholder="Password" required>
+
+      <div class="buttons">
+        <button type="submit" class="btn primary">Simpan</button>
+        <button type="reset" class="btn secondary">Batal</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // ====== Validasi dan Notifikasi ======
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nim = document.getElementById("nim").value.trim();
+      const nama = document.getElementById("nama").value.trim();
+      const pass = document.getElementById("pass").value.trim();
+
+      if (!nim || !nama || !pass) {
+        alert("Harap isi semua field!");
+        return;
+      }
+
+      alert(`Data berhasil disimpan!\n\nNIM: ${nim}\nNama: ${nama}`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>

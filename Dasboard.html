@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Mahasiswa</title>
+  <style>
+    /* ====== GLOBAL STYLE ====== */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin-top: 40px;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    header .user {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    /* ====== CARD AREA ====== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .card h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    /* ====== MODUL LIST ====== */
+    .modul-section {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .modul-section h3 {
+      margin-top: 0;
+      text-transform: lowercase;
+    }
+
+    .modul-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modul-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+    }
+
+    .modul-list li:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 600px) {
+      header h2 {
+        font-size: 1.2rem;
+      }
+
+      .card {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Selamat Datang</h2>
+      <span class="user">Hai, User..</span>
+    </header>
+
+    <div class="cards">
+      <div class="card" id="addModule">
+        <h4>Tambah Modul</h4>
+        <p>Tambahkan modul mata kuliah yang kamu butuhkan</p>
+      </div>
+
+      <div class="card">
+        <h4>Semester</h4>
+        <p>Ganjil 2025/2026</p>
+      </div>
+
+      <div class="card" id="searchCard">
+        <h4>Search</h4>
+        <p>Cari mata kuliah atau ruang</p>
+      </div>
+    </div>
+
+    <section class="modul-section">
+      <h3>modul</h3>
+      <ul class="modul-list">
+        <li>Matematika</li>
+        <li>Rekayasa Perangkat Lunak</li>
+        <li>Sistem Informasi</li>
+        <li>Pendidikan Pancasila</li>
+        <li>Sistem Komputer</li>
+        <li>Dasar Pemrograman</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // Event klik Tambah Modul
+    document.getElementById("addModule").addEventListener("click", () => {
+      alert("Fitur tambah modul akan segera tersedia!");
+    });
+
+    // Event klik Search
+    document.getElementById("searchCard").addEventListener("click", () => {
+      const keyword = prompt("Masukkan nama mata kuliah atau ruang:");
+      if (keyword) {
+        alert(`Hasil pencarian untuk: ${keyword}`);
+      }
+    });
+  </script>
+</body>
+</html>

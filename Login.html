@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* ====== Gaya Umum ====== */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      width: 320px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .action-row {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn.primary {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background-color: #0b5ed7;
+    }
+
+    .forgot {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #0d6efd;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="nim">NIM :</label>
+      <input type="text" id="nim" name="nim" placeholder="NIM" required>
+
+      <label for="password">PASS :</label>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+
+      <div class="action-row">
+        <button type="submit" class="btn primary">Lanjut</button>
+        <a href="#" class="forgot">Lupa Password?</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // ====== Logika sederhana ======
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nim = document.getElementById("nim").value.trim();
+      const pass = document.getElementById("password").value.trim();
+
+      if (!nim || !pass) {
+        alert("Harap isi semua field!");
+        return;
+      }
+
+      // Contoh login sederhana
+      if (nim === "12345" && pass === "admin") {
+        alert("Login berhasil!");
+        // Bisa diarahkan ke halaman lain
+        // window.location.href = "dashboard.html";
+      } else {
+        alert("NIM atau Password salah!");
+      }
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
