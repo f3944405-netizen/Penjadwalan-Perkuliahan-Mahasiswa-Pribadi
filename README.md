@@ -1,1 +1,1 @@
-# Perjawalan-Perkuliahan-Mahasiswa-Pribadi
+#Projek_Perjawalan_Perkuliahan_Mahasiswa_Pribadi
