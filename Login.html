@@ -1,134 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <style>
-    /* ====== Gaya Umum ====== */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* ====== Gaya Umum ====== */
+        body {
+            font-family: Arial, sans-serif;
+            /* BARIS INI TELAH DIPERBARUI menggunakan URL eksternal */
+            background: url('https://images.unsplash.com/photo-1541339907198-e0875663f7f4?ixlib=rb-1.2.1') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .container {
-      background-color: #fff;
-      padding: 25px 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      width: 320px;
-    }
+        .container {
+            background-color: #fff;
+            padding: 25px 30px;
+            border-radius: 10px;
+            /* Meningkatkan bayangan agar menonjol di atas gambar latar */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+            width: 320px;
+        }
 
-    h2 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+        }
 
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      font-size: 0.9rem;
-      color: #555;
-    }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #555;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 0.95rem;
-    }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
 
-    .action-row {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .action-row {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .btn {
-      padding: 8px 14px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: background-color 0.2s ease;
-    }
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+        }
 
-    .btn.primary {
-      background-color: #0d6efd;
-      color: white;
-    }
+        .btn.primary {
+            background-color: #0d6efd;
+            color: white;
+        }
 
-    .btn.primary:hover {
-      background-color: #0b5ed7;
-    }
+        .btn.primary:hover {
+            background-color: #0b5ed7;
+        }
 
-    .forgot {
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: #0d6efd;
-    }
+        .forgot {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: #0d6efd;
+        }
 
-    .forgot:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .forgot:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="nim">NIM :</label>
-      <input type="text" id="nim" name="nim" placeholder="NIM" required>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="nim">NIM :</label>
+            <input type="text" id="nim" name="nim" placeholder="NIM" required>
 
-      <label for="password">PASS :</label>
-      <input type="password" id="password" name="password" placeholder="Password" required>
+            <label for="password">Kata Sandi :</label>
+            <input type="password" id="password" name="password" placeholder="Kata Sandi" required>
 
-      <div class="action-row">
-        <button type="submit" class="btn primary">Lanjut</button>
-        <a href="#" class="forgot">Lupa Password?</a>
-      </div>
-    </form>
-  </div>
+            <div class="action-row">
+                <button type="submit" class="btn primary">Lanjut</button>
+                <a href="#" class="forgot"></a>
+            </div>
+        </form>
+    </div>
 
-  <script>
-    // ====== Logika sederhana ======
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault();
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-      const nim = document.getElementById("nim").value.trim();
-      const pass = document.getElementById("password").value.trim();
+            const nim = document.getElementById("nim").value.trim();
+            const pass = document.getElementById("password").value.trim();
+            let storedUser = JSON.parse(localStorage.getItem("user"));
 
-      if (!nim || !pass) {
-        alert("Harap isi semua field!");
-        return;
-      }
+            if (!nim || !pass) {
+                alert("Harap isi semua field!");
+                return;
+            }
 
-      // Contoh login sederhana
-      if (nim === "12345" && pass === "admin") {
-        alert("Login berhasil!");
-        // Bisa diarahkan ke halaman lain
-        // window.location.href = "dashboard.html";
-      } else {
-        alert("NIM atau Password salah!");
-      }
-    });
-  </script>
+            // Cek data login
+            if (storedUser && nim === storedUser.nim && pass === storedUser.pass) {
+                alert("Login berhasil!");
+                localStorage.setItem("loggedInUser", JSON.stringify(storedUser));
+                window.location.href = "Dasboard.html"; // arahkan ke dashboard
+            } else if (!storedUser) {
+                // Jika tidak ada data pengguna tersimpan (user pertama kali daftar)
+                const newUser = {
+                    nim: nim,
+                    pass: pass
+                };
+                localStorage.setItem("user", JSON.stringify(newUser));
+                alert("Selamat datang! Akun baru berhasil didaftarkan dan login berhasil!");
+                localStorage.setItem("loggedInUser", JSON.stringify(newUser));
+                window.location.href = "Dasboard.html"; // arahkan ke dashboard
+            } else {
+                // Jika login gagal (NIM atau Kata Sandi salah)
+                alert("NIM atau Kata Sandi salah!"); 
+            }
+        });
+    </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>

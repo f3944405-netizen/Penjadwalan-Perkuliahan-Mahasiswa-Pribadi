@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa - Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">🎓 SIAKAD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Data Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Data Mahasiswa</h2>
+        
+        <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#tambahModal">
+            ➕ Tambah Mahasiswa
+        </button>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">NIM</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jurusan</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>2023001</td>
+                        <td>Budi Santoso</td>
+                        <td>Teknik Informatika</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">Edit</button>
+                            <button class="btn btn-sm btn-danger">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>2023002</td>
+                        <td>Siti Aisyah</td>
+                        <td>Manajemen</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">Edit</button>
+                            <button class="btn btn-sm btn-danger">Hapus</button>
+                        </td>
+                    </tr>
+                     <tr>
+                        <th scope="row">3</th>
+                        <td>2023003</td>
+                        <td>Agus Riyadi</td>
+                        <td>Akuntansi</td>
+                        <td>
+                            <button class="btn btn-sm btn-warning">Edit</button>
+                            <button class="btn btn-sm btn-danger">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tambahModalLabel">Tambah Data Mahasiswa Baru</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="nim" class="form-label">NIM</label>
+                <input type="text" class="form-control" id="nim" required>
+              </div>
+              <div class="mb-3">
+                <label for="nama" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" id="nama" required>
+              </div>
+              <div class="mb-3">
+                <label for="jurusan" class="form-label">Jurusan</label>
+                <select class="form-select" id="jurusan" required>
+                  <option selected disabled value="">Pilih...</option>
+                  <option>Teknik Informatika</option>
+                  <option>Sistem Informasi</option>
+                  <option>Manajemen</option>
+                  <option>Akuntansi</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+// FITUR TAMBAH, EDIT, HAPUS
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tabelBody = document.querySelector("table tbody");
+
+    // ============= FITUR TAMBAH MAHASISWA =============
+    const btnSimpan = document.querySelector(".modal-footer .btn-primary");
+    const nimInput = document.getElementById("nim");
+    const namaInput = document.getElementById("nama");
+    const jurusanInput = document.getElementById("jurusan");
+
+    btnSimpan.addEventListener("click", function () {
+        let nim = nimInput.value.trim();
+        let nama = namaInput.value.trim();
+        let jurusan = jurusanInput.value;
+
+        if (!nim || !nama || !jurusan) {
+            alert("Semua field harus diisi!");
+            return;
+        }
+
+        let no = tabelBody.rows.length + 1;
+
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <th scope="row">${no}</th>
+            <td>${nim}</td>
+            <td>${nama}</td>
+            <td>${jurusan}</td>
+            <td>
+                <button class="btn btn-sm btn-warning btn-edit">Edit</button>
+                <button class="btn btn-sm btn-danger btn-hapus">Hapus</button>
+            </td>
+        `;
+
+        tabelBody.appendChild(row);
+
+        nimInput.value = "";
+        namaInput.value = "";
+        jurusanInput.value = "";
+
+        const modalElement = document.getElementById("tambahModal");
+        bootstrap.Modal.getInstance(modalElement).hide();
+    });
+
+
+    // ============= FITUR HAPUS =============
+    tabelBody.addEventListener("click", function (e) {
+        if (e.target.classList.contains("btn-hapus")) {
+            let row = e.target.closest("tr");
+            row.remove();
+            updateNomor();
+        }
+    });
+
+
+    // ============= FITUR EDIT =============
+    tabelBody.addEventListener("click", function (e) {
+        if (e.target.classList.contains("btn-edit")) {
+
+            let row = e.target.closest("tr");
+            let nim = row.children[1].textContent;
+            let nama = row.children[2].textContent;
+            let jurusan = row.children[3].textContent;
+
+            // Pindahkan data ke form modal
+            nimInput.value = nim;
+            namaInput.value = nama;
+            jurusanInput.value = jurusan;
+
+            // Buka modal
+            const modal = new bootstrap.Modal(document.getElementById("tambahModal"));
+            modal.show();
+
+            // Ganti tombol simpan menjadi tombol update
+            btnSimpan.textContent = "Update Data";
+
+            // Saat diklik update
+            btnSimpan.onclick = function () {
+                row.children[1].textContent = nimInput.value;
+                row.children[2].textContent = namaInput.value;
+                row.children[3].textContent = jurusanInput.value;
+
+                // Reset tombol
+                btnSimpan.textContent = "Simpan Data";
+
+                nimInput.value = "";
+                namaInput.value = "";
+                jurusanInput.value = "";
+
+                modal.hide();
+            };
+        }
+    });
+
+
+    // ============= UPDATE NOMOR OTOMATIS =============
+    function updateNomor() {
+        [...tabelBody.rows].forEach((row, i) => {
+            row.children[0].textContent = i + 1;
+        });
+    }
+
+});
+</script>
+</body>
+</html>
