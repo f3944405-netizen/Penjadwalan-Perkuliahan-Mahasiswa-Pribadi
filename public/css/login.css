@@ -1,0 +1,186 @@
+/* Body Background */
+  body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                  url('../assets/img/polibatam.JPG') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+/* Container for the Login Form */
+.container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    text-align: center;
+}
+
+/* Title */
+.container h2 {
+    color: #333;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Label Style */
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+/* Input Fields */
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus Effect on Input Fields */
+.form-control:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+}
+
+/* Input Group for Icon-based Fields (Optional) */
+.input-group {
+    position: relative;
+    display: flex;
+}
+
+.input-group .form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Submit Button */
+.btn-outline-secondary {
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    border-left: none;
+    padding: 0 14px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+/* Hover Effect on Button */
+.btn-outline-secondary:hover {
+    background: #e9ecef;
+}
+
+/* Action Row (forgot, register links) */
+.action-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* Primary Button (Login Button) */
+.btn.primary {
+    background: #2575fc;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Hover Effect on Primary Button */
+.btn.primary:hover {
+    background: #1a68e8;
+}
+
+/* Forgot Password Link */
+.forgot, .register {
+    display: inline-block;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+/* Hover Effect on Links */
+.forgot:hover, .register:hover {
+    color: #2575fc;
+    text-decoration: underline;
+}
+
+.forgot {
+    margin-top: 8px;
+    align-self: center;
+}
+
+/* Register Link */
+.register {
+    align-self: center;
+    font-weight: 500;
+}
+
+/* Toast Notification */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+}
+
+#toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .form-control {
+        font-size: 1rem;
+    }
+    .btn.primary {
+        padding: 12px 16px;
+    }
+    .btn-outline-secondary {
+        padding: 0 12px;
+    }
+}
